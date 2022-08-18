@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/Weapons/Player/OrbLauncher.png" type="Texture" id=1]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+} ]
+
+[node name="OrbLauncher" type="AnimatedSprite"]
+position = Vector2( 8, 9 )
+frames = SubResource( 1 )
+animation = "idle"
+playing = true
+
+[node name="OrbSpawn" type="Position2D" parent="."]
+position = Vector2( 0.5, -6 )
+rotation = 1.5708
+
+[node name="RayCast" type="RayCast2D" parent="."]
+position = Vector2( 0.5, 6 )
+rotation = -1.5708
+enabled = true
+cast_to = Vector2( 10, 0 )
+
+[node name="Tween" type="Tween" parent="."]
